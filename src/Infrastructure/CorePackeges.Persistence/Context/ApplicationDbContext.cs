@@ -5,6 +5,7 @@ namespace CorePackeges.Persistence.Context;
 
 public class ApplicationDbContext : DbContext
 {
+
     public DbSet<Configuration> Configurations { get; set; }
 
 

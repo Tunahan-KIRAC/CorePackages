@@ -10,6 +10,7 @@ public class ConfigurationReader
     private readonly string _connectionString;
     private readonly int _refreshTimerIntervalInMs;
 
+    private readonly Id
     public ConfigurationReader(string applicationName, string connectionString, int refreshTimerIntervalInMs)
     {
         _applicationName = applicationName;
@@ -19,6 +20,6 @@ public class ConfigurationReader
 
     public async Task<T> GetValueAsync<T>(string name)
     {
-   
+        
     }
 }
