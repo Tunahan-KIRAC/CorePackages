@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CorePackages.Domain\CorePackages.Domain.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CorePackeges.Persistence\CorePackeges.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
