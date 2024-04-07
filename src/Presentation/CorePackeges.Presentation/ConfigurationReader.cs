@@ -1,7 +1,4 @@
-﻿using CorePackeges.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore.SqlServer;
+﻿using CorePackages.Application.Interfaces.Repository;
 namespace CorePackeges.Presentation;
 
 public class ConfigurationReader
@@ -10,16 +7,18 @@ public class ConfigurationReader
     private readonly string _connectionString;
     private readonly int _refreshTimerIntervalInMs;
 
-    private readonly Id
-    public ConfigurationReader(string applicationName, string connectionString, int refreshTimerIntervalInMs)
+    private readonly IConfigurationRepository _configurationRepository;
+
+    public ConfigurationReader(string applicationName, string connectionString, int refreshTimerIntervalInMs, IConfigurationRepository configurationRepository)
     {
         _applicationName = applicationName;
         _connectionString = connectionString;
         _refreshTimerIntervalInMs = refreshTimerIntervalInMs;
+        _configurationRepository = configurationRepository;
     }
 
-    public async Task<T> GetValueAsync<T>(string name)
+    public async Task<string> GetValueAsync(string name)
     {
-        
+       return await _configurationRepository.GetByNameAsync(name);
     }
 }

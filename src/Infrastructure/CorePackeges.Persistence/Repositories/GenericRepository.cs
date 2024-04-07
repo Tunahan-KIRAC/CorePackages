@@ -35,6 +35,10 @@ public class GenericRepository<T> : IGenericRepositoryAsync<T> where T : BaseEnt
 
     public async Task<T> GetByNameAsync(string name)
     {
-        return await dbContext.Set<T>().FirstOrDefaultAsync(x=> x.Name == name);
+        var data = await dbContext.Set<T>().FirstOrDefaultAsync(x=> x.Name == name);
+
+
+
+        return data;
     }
 }
